@@ -20,7 +20,7 @@ pipeline {
     }
     post {
         success {
-           archiveArtifacts artifacts: 'Jenkinsfile, Dockerfile, **/*.tar', 
+           archiveArtifacts artifacts: 'Jenkinsfile, Dockerfile, **/*.yml', 
            followSymlinks: false
         }
     }
