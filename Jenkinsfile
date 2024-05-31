@@ -6,7 +6,7 @@ pipeline {
             steps {
                 script {
                     withDockerRegistry(credentialsId: 'docker-cred', toolName: 'docker') {
-                        sh "docker build -t sharadvanth/recommendationservice:latest ."
+                        sh "docker build -t sharadvanth/recommendationservice:${BUILD_NUMBER} ."
                     }
                 }
             }
@@ -16,7 +16,7 @@ pipeline {
             steps {
                 script {
                     withDockerRegistry(credentialsId: 'docker-cred', toolName: 'docker') {
-                        sh "docker push sharadvanth/recommendationservice:latest "
+                        sh "docker push sharadvanth/recommendationservice:${BUILD_NUMBER} "
                     }
                 }
             }
