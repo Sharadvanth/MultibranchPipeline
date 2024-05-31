@@ -8,7 +8,7 @@ pipeline {
                     dir('src') {
 
                     withDockerRegistry(credentialsId: 'docker-cred', toolName: 'docker') {
-                        sh "docker build -t sharadvanth/cartservice:latest ."
+                        sh "docker build -t sharadvanth/cartservice:${BUILD_NUMBER} ."
                     }
                         }
                 }
@@ -19,7 +19,7 @@ pipeline {
             steps {
                 script {
                     withDockerRegistry(credentialsId: 'docker-cred', toolName: 'docker') {
-                        sh "docker push sharadvanth/cartservice:latest "
+                        sh "docker push sharadvanth/cartservice:${BUILD_NUMBER} "
                     }
                 }
             }
