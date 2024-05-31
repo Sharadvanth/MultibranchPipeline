@@ -25,4 +25,10 @@ pipeline {
             }
         }
     }
+    post {
+        success {
+           archiveArtifacts artifacts: 'Jenkinsfile, Dockerfile, **/*.tar', 
+           followSymlinks: false
+        }
+    }
 }
